@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-display: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    
+    /* Existing Swiss Color System Variables (Light Theme) */
+    --bg-primary: #FAFAF9;
+    --bg-subtle: #F4F4F0;
+    --bg-card: #FFFFFF;
+    --text-primary: #111111;
+    --text-secondary: #555555;
+    --text-muted: #787878;
+    --border-hairline: #E5E5E0;
+    --border-subtle: #F0F0EC;
+    --accent: #D92D20; /* International vermilion accent (5.6:1 contrast on #FAFAF9) */
+  }
+
+  /* Professional Swiss Dark Theme adhering to existing variables */
+  :root[data-theme="dark"],
+  html.dark {
+    color-scheme: dark;
+    --bg-primary: #111110; /* Deep matte charcoal/black */
+    --bg-subtle: #191918; /* Elevated panel surface */
+    --bg-card: #161615; /* Clean card surface */
+    --text-primary: #F5F5F4; /* Crisp high-contrast off-white */
+    --text-secondary: #A3A39E; /* Clean legible neutral */
+    --text-muted: #73736E; /* Subtle metadata */
+    --border-hairline: #282826; /* Precise 1px hairline rule */
+    --border-subtle: #20201E; /* Inner divider */
+    --accent: #F87171; /* Tuned vermilion for dark backgrounds (6.2:1 contrast against #111110) */
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    letter-spacing: -0.011em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-padding-top: 80px;
+    transition: background-color 150ms ease, color 150ms ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.03em;
+    font-weight: 600;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Hairline Swiss rule */
+.hairline-border {
+  border-color: var(--border-hairline);
+}
+
+/* Accessible focus ring */
+:focus-visible {
+  outline: 2px solid var(--text-primary) !important;
+  outline-offset: 2px !important;
+}
+
+/* Dark theme style mappings for strict variable adherence */
+html.dark body,
+[data-theme="dark"] body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Surfaces */
+html.dark .bg-\[\#FAFAF9\],
+[data-theme="dark"] .bg-\[\#FAFAF9\] {
+  background-color: var(--bg-primary) !important;
+}
+
+html.dark .bg-white,
+[data-theme="dark"] .bg-white {
+  background-color: var(--bg-card) !important;
+}
+
+html.dark .bg-\[\#F4F4F0\],
+[data-theme="dark"] .bg-\[\#F4F4F0\] {
+  background-color: var(--bg-subtle) !important;
+}
+
+/* Text */
+html.dark .text-\[\#111111\],
+[data-theme="dark"] .text-\[\#111111\] {
+  color: var(--text-primary) !important;
+}
+
+html.dark .text-\[\#222222\],
+html.dark .text-\[\#333333\],
+html.dark .text-\[\#444444\],
+html.dark .text-\[\#555555\],
+[data-theme="dark"] .text-\[\#222222\],
+[data-theme="dark"] .text-\[\#333333\],
+[data-theme="dark"] .text-\[\#444444\],
+[data-theme="dark"] .text-\[\#555555\] {
+  color: var(--text-secondary) !important;
+}
+
+html.dark .text-\[\#666666\],
+html.dark .text-\[\#767676\],
+html.dark .text-\[\#787878\],
+html.dark .text-\[\#999999\],
+[data-theme="dark"] .text-\[\#666666\],
+[data-theme="dark"] .text-\[\#767676\],
+[data-theme="dark"] .text-\[\#787878\],
+[data-theme="dark"] .text-\[\#999999\] {
+  color: var(--text-muted) !important;
+}
+
+/* Borders */
+html.dark .border-\[\#E5E5E0\],
+[data-theme="dark"] .border-\[\#E5E5E0\] {
+  border-color: var(--border-hairline) !important;
+}
+
+html.dark .border-\[\#F0F0EC\],
+[data-theme="dark"] .border-\[\#F0F0EC\] {
+  border-color: var(--border-subtle) !important;
+}
+
+html.dark .border-\[\#111111\],
+[data-theme="dark"] .border-\[\#111111\] {
+  border-color: var(--text-primary) !important;
+}
+
+html.dark .divide-\[\#F0F0EC\] > :not([hidden]) ~ :not([hidden]),
+[data-theme="dark"] .divide-\[\#F0F0EC\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--border-subtle) !important;
+}
+
+html.dark .divide-\[\#E5E5E0\] > :not([hidden]) ~ :not([hidden]),
+[data-theme="dark"] .divide-\[\#E5E5E0\] > :not([hidden]) ~ :not([hidden]) {
+  border-color: var(--border-hairline) !important;
+}
+
+/* Accent & High-contrast elements */
+html.dark .text-\[\#D92D20\],
+[data-theme="dark"] .text-\[\#D92D20\] {
+  color: var(--accent) !important;
+}
+
+html.dark .bg-\[\#D92D20\],
+[data-theme="dark"] .bg-\[\#D92D20\] {
+  background-color: var(--accent) !important;
+}
+
+html.dark .border-\[\#D92D20\],
+[data-theme="dark"] .border-\[\#D92D20\] {
+  border-color: var(--accent) !important;
+}
+
+/* Inverted black containers in dark mode */
+html.dark .bg-\[\#111111\],
+[data-theme="dark"] .bg-\[\#111111\] {
+  background-color: var(--text-primary) !important;
+  color: var(--bg-primary) !important;
+}
+
+html.dark .bg-\[\#111111\] svg,
+[data-theme="dark"] .bg-\[\#111111\] svg {
+  color: var(--bg-primary) !important;
+}
+
+html.dark .hover\:bg-\[\#111111\]:hover,
+[data-theme="dark"] .hover\:bg-\[\#111111\]:hover {
+  background-color: var(--text-primary) !important;
+  color: var(--bg-primary) !important;
+}
+
+html.dark .hover\:border-\[\#111111\]:hover,
+[data-theme="dark"] .hover\:border-\[\#111111\]:hover {
+  border-color: var(--text-primary) !important;
+}
+
+/* Form inputs in dark mode */
+html.dark input,
+html.dark textarea,
+html.dark select,
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select {
+  background-color: var(--bg-card) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--border-hairline) !important;
+}
+
+html.dark input:focus,
+html.dark textarea:focus,
+[data-theme="dark"] input:focus,
+[data-theme="dark"] textarea:focus {
+  border-color: var(--text-primary) !important;
+}
+
+/* Sticky Header in Dark Mode */
+html.dark header.bg-\[\#FAFAF9\]\/95,
+[data-theme="dark"] header.bg-\[\#FAFAF9\]\/95 {
+  background-color: rgba(17, 17, 16, 0.95) !important;
+}
+
+/* Reduced motion overrides */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .custom-cursor {
+    display: none !important;
+  }
+}
+
+/* Print styles for Resume */
+@media print {
+  header, footer, nav, button, .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+    font-size: 11pt;
+  }
+  .print-only {
+    display: block !important;
+  }
+}

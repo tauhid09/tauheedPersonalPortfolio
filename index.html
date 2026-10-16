@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('tauheed_portfolio_theme_v1');
+          var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          var theme = stored === 'dark' || (!stored && prefersDark) ? 'dark' : 'light';
+          document.documentElement.setAttribute('data-theme', theme);
+          document.documentElement.style.colorScheme = theme;
+          if (theme === 'dark') document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
+
+    <title>Tauheed Ansari | Minimalist Swiss Portfolio</title>
+    <meta name="description" content="Production-ready personal portfolio website for senior software engineer Tauheed Ansari, built with Swiss typography-led design, comprehensive case studies, admin controls, and grounded portfolio AI assistant." />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Tauheed Ansari | Minimalist Swiss Portfolio" />
+    <meta property="og:description" content="Production-ready personal portfolio website for senior software engineer Tauheed Ansari, built with Swiss typography-led design, comprehensive case studies, admin controls, and grounded portfolio AI assistant." />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Tauheed Ansari Portfolio" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Tauheed Ansari | Minimalist Swiss Portfolio" />
+    <meta name="twitter:description" content="Production-ready personal portfolio website for senior software engineer Tauheed Ansari, built with Swiss typography-led design, comprehensive case studies, admin controls, and grounded portfolio AI assistant." />
+    
+    <!-- Typography: Inter Tight, Inter, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "@id": "#person",
+          "name": "Mohd Tauheed Ansari",
+          "jobTitle": "Salesforce Associate Developer",
+          "email": "mailto:mohdtauheedansari879@gmail.com",
+          "url": "https://mohdtauheedansari.dev",
+          "sameAs": [
+            "https://github.com/mohdtauheedansari",
+            "https://linkedin.com/in/mohdtauheedansari",
+            "https://www.salesforce.com/trailblazer/mohdtauheedansari"
+          ],
+          "knowsAbout": [
+            "Salesforce CRM",
+            "Apex Classes & Triggers",
+            "Lightning Web Components (LWC)",
+            "Salesforce Flows",
+            "Agentforce",
+            "SOQL & SOSL",
+            "OpenAI API Integration",
+            "Model Context Protocol (MCP)",
+            "Data Loader",
+            "Salesforce Security Model"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "#website",
+          "url": "https://mohdtauheedansari.dev",
+          "name": "Mohd Tauheed Ansari — Salesforce Developer Portfolio",
+          "publisher": {
+            "@id": "#person"
+          }
+        }
+      ]
+    }
+    </script>
+  </head>
+  <body class="bg-[#FAFAF9] text-[#111111] antialiased selection:bg-[#111111] selection:text-[#FAFAF9]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
